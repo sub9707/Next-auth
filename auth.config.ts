@@ -5,8 +5,15 @@ import bcrypt from "bcryptjs";
 import type { NextAuthConfig } from "next-auth";
 import { getUserByEmail } from "./data/user";
 
+import Google from "next-auth/providers/google";
+import Github from "next-auth/providers/github";
+import Kakao from "next-auth/providers/kakao";
+
 export default {
   providers: [
+    Google,
+    Github,
+    Kakao,
     Crenentials({
       async authorize(credentials) {
         const validatedFields = LoginSchema.safeParse(credentials);
