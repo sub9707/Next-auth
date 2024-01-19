@@ -11,9 +11,18 @@ import Kakao from "next-auth/providers/kakao";
 
 export default {
   providers: [
-    Google,
-    Github,
-    Kakao,
+    Google({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    }),
+    Github({
+      clientId: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    }),
+    Kakao({
+      clientId: process.env.KAKAO_CLIENT_ID,
+      clientSecret: process.env.KAKAO_CLIENT_SECRET,
+    }),
     Crenentials({
       async authorize(credentials) {
         const validatedFields = LoginSchema.safeParse(credentials);
@@ -30,4 +39,5 @@ export default {
       },
     }),
   ],
+  trustHost: true,
 } satisfies NextAuthConfig;

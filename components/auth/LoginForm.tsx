@@ -40,7 +40,9 @@ function LoginForm() {
 
     startTransition(() => {
       login(values).then((data) => {
+        //@ts-ignore
         setError(data.error);
+        //@ts-ignore
         setSuccess(data.success);
       });
     });
