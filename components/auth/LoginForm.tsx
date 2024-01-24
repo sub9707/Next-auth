@@ -20,8 +20,15 @@ import { Button } from "@/components/ui/button";
 import { login } from "@/actions/login";
 import FormError from "../form-error";
 import FormSuccess from "../form-success";
+import { useSearchParams } from "next/navigation";
 
 function LoginForm() {
+  const searchParams = useSearchParams();
+  const urlError =
+    searchParams.get("error") === "OAuthAccountNotLinked"
+      ? "이미 다른 소셜 계정으로 등록된 Email입니다."
+      : "";
+
   // useTransition: pending과 같은 상태변화를 더 쉽게 관찰, 제어 가능한 훅
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | undefined>("");
@@ -40,10 +47,8 @@ function LoginForm() {
 
     startTransition(() => {
       login(values).then((data) => {
-        //@ts-ignore
-        setError(data.error);
-        //@ts-ignore
-        setSuccess(data.success);
+        setError(data?.error);
+        setSuccess(data?.success);
       });
     });
   };
@@ -93,7 +98,7 @@ function LoginForm() {
               )}
             />
           </div>
-          <FormError message={error} />
+          <FormError message={error || urlError} />
           <FormSuccess message={success} />
           <Button disabled={isPending} type="submit" className="w-full">
             로그인

@@ -3,7 +3,7 @@ export const publicRoutes = ["/"];
 // private 경로
 export const privateRoutes = ["/"];
 // auth 경로
-export const authRoutes = ["/auth/login", "/auth/register"];
+export const authRoutes = ["/auth/login", "/auth/register", "/auth/error"];
 
 // auth API 경로 prefix
 export const apiAuthPrefix = "/api/auth";

@@ -4,6 +4,8 @@ import * as z from "zod";
 import { signIn } from "@/auth";
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 import { AuthError } from "next-auth";
+import { getUserByEmail } from "@/data/user";
+import { generateVerificationToken } from "@/lib/token";
 
 // 로그인 서버 액션
 export const login = async (values: z.infer<typeof LoginSchema>) => {
@@ -14,6 +16,19 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
   }
 
   const { email, password } = validatedFields.data;
+
+  const existingUser = await getUserByEmail(email);
+
+  if (!existingUser || !existingUser.email || !existingUser.password) {
+    return { error: "존재하지 않는 이메일입니다." };
+  }
+
+  if (!existingUser.emailVerified) {
+    const verificationToken = await generateVerificationToken(
+      existingUser.email
+    );
+    return { success: "인증 메일이 전송되었습니다." };
+  }
 
   try {
     await signIn("credentials", {
