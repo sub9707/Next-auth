@@ -9,6 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { auth } from "@/auth";
 import PayButton from "./PayButton";
+import KakaoPayButton from "./KakaoPayButton";
 
 async function PaymentCard() {
   const session = await auth();
@@ -22,7 +23,12 @@ async function PaymentCard() {
           현재 잔고는 <strong>{session?.user.balance}</strong>원입니다.
         </CardDescription>
       </CardHeader>
-      <div className="w-full flex justify-center mb-5">
+      <div className="w-full gap-3 flex justify-center mb-5">
+        <KakaoPayButton
+          email={session?.user.email!}
+          name={session?.user.name!}
+          id={session?.user.id!}
+        />
         <PayButton email={session?.user.email!} name={session?.user.name!} />
       </div>
     </Card>

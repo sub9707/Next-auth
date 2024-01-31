@@ -25,7 +25,7 @@ async function UserDataCard() {
             <strong>email</strong>: {session?.user.email}
           </p>
           <p>
-            <strong>잔고</strong>: {session?.user.balance}
+            <strong>잔고</strong>: {session?.user.balance}₩
           </p>
           <p>
             <strong>UID</strong>: {session?.user.id}
