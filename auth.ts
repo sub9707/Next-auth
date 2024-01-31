@@ -11,6 +11,7 @@ declare module "next-auth" {
     user: {
       id: string;
       role: "ADMIN" | "USER";
+      balance: number;
     } & DefaultSession["user"];
   }
 }
@@ -44,7 +45,6 @@ export const {
     },
     //@ts-ignore
     async session({ token, session }) {
-      console.log({ sessionToken: token });
       if (token && token.sub && session.user) {
         session.user.id = token.sub;
       }
@@ -52,6 +52,14 @@ export const {
       if (token.role && session.user) {
         session.user.role = token.role;
       }
+
+      if (token.sub) {
+        const existingUser = await getUserById(token.sub);
+        if (existingUser) {
+          session.user.balance = existingUser.balance;
+        }
+      }
+
       return session;
     },
     async jwt({ token }) {

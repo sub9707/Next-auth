@@ -19,6 +19,7 @@ model User {
   updatedAt     DateTime  @updatedAt
   role          UserRole  @default(USER)
   accounts      Account[]
+  balance       Int       @default(0)
 }
 
 model Account {

@@ -9,7 +9,6 @@ async function page() {
       <form
         action={async () => {
           "use server";
-
           await signOut();
         }}>
         <button type="submit">로그아웃</button>
