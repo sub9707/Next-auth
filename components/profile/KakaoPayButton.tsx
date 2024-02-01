@@ -35,9 +35,7 @@ function KakaoPayButton(props: sessionProps) {
 
   async function callback(rsp: any) {
     console.log(rsp);
-    const { success, error_msg, merchant_uid, imp_uid } = rsp;
-
-    console.log("imp_uid : ", imp_uid);
+    const { success, error_msg } = rsp;
 
     if (success) {
       const res = await fetch(
@@ -45,10 +43,6 @@ function KakaoPayButton(props: sessionProps) {
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
-          // body: JSON.stringify({
-          //   imp_uid: imp_uid,
-          //   merchant_uid: merchant_uid,
-          // }),
         }
       );
 

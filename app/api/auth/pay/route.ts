@@ -32,7 +32,5 @@ export async function PUT(request: NextRequest) {
       status: 400,
     });
   }
-  return new Response("결제 성공!", {
-    status: 200,
-  });
+  redirect("/playground");
 }
