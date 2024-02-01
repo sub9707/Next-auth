@@ -9,4 +9,4 @@ export const authRoutes = ["/auth/login", "/auth/register", "/auth/error"];
 export const apiAuthPrefix = "/api/auth";
 
 // 로그인 이후 redirect 경로
-export const DEFAULT_LOGIN_REDIRECT = "/profile";
+export const DEFAULT_LOGIN_REDIRECT = "/playground";

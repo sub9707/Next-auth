@@ -9,12 +9,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { AlertDialog, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 import { useRouter } from "next/navigation";
 
 type ProfileCardProps = {
   header: string;
   content: string;
   actionHref: string;
+  detailModal: React.ReactNode;
 };
 
 function ProfileCard(props: ProfileCardProps) {
@@ -25,11 +27,17 @@ function ProfileCard(props: ProfileCardProps) {
         <CardTitle>{props.header}</CardTitle>
         <CardDescription>{props.content}</CardDescription>
       </CardHeader>
-      <CardFooter className="flex justify-end">
+      <CardFooter className="flex gap-3 justify-end">
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            <Button className="w-full">상세보기</Button>
+          </AlertDialogTrigger>
+          {props.detailModal}
+        </AlertDialog>
         <Button
           className="w-full"
           onClick={() => router.push(props.actionHref)}>
-          이동
+          예제 이동
         </Button>
       </CardFooter>
     </Card>
