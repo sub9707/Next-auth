@@ -1,10 +1,14 @@
 import React from "react";
 import ProductDetail from "@/components/state/product/ProductDetail";
 
-function page() {
+function page({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
   return (
     <div className="DetailPage">
-      <ProductDetail />
+      <ProductDetail searchParams={searchParams} />
     </div>
   );
 }

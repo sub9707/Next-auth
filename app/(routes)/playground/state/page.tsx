@@ -16,6 +16,7 @@ function page() {
             Description={URLDetailData.Description}
           />
         }
+        detail
       />
       <ProfileCard
         header="URL State"
@@ -27,6 +28,7 @@ function page() {
             Description={URLDetailData.Description}
           />
         }
+        detail
       />
     </div>
   );

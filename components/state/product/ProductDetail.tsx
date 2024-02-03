@@ -3,18 +3,20 @@ import { Card } from "@/components/ui/card";
 import ProductCarousel from "./ProductCarousel";
 import { Badge } from "@/components/ui/badge";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
-function ProductDetail() {
+const colorVariants = ["black", "white", "blue"];
+const sizeVariants = ["230", "240", "260", "270", "280", "290"];
+
+type SearchParamsType = {
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+function ProductDetail(props: SearchParamsType) {
+  const selectedColor = props.searchParams.color as string;
+  const selectedSize = props.searchParams.size as string;
+
   return (
     <Card className="w-[90vw] h-[90vh] flex">
       <div className="w-[60%] h-full">
@@ -27,35 +29,37 @@ function ProductDetail() {
         </div>
         <div className="mt-10">
           <h2 className="text-2xl font-normal text-gray-400">COLOR</h2>
-          <ToggleGroup className="flex justify-start mt-5" type="single">
-            <ToggleGroupItem className="w-28" value="black" defaultChecked>
-              Black
-            </ToggleGroupItem>
-            <ToggleGroupItem className="w-28" value="white">
-              White
-            </ToggleGroupItem>
-            <ToggleGroupItem className="w-28" value="blue">
-              Blue
-            </ToggleGroupItem>
+          <ToggleGroup
+            className="flex justify-start mt-5"
+            type="single"
+            variant="outline"
+            value={selectedColor}>
+            {colorVariants.map((color, idx) => (
+              <ToggleGroupItem key={idx} className={`w-28`} value={color}>
+                <Link
+                  href={`/playground/state/URL-State?color=${color}&size=${selectedSize}`}>
+                  {color.charAt(0).toUpperCase() + color.slice(1)}
+                </Link>
+              </ToggleGroupItem>
+            ))}
           </ToggleGroup>
         </div>
         <div className="mt-10">
           <h2 className="text-2xl font-normal text-gray-400">SIZE</h2>
-          <Select>
-            <SelectTrigger className="w-full mt-5">
-              <SelectValue placeholder="SELECT FEET SIZE" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectItem value="240">240mm</SelectItem>
-                <SelectItem value="250">250mm</SelectItem>
-                <SelectItem value="260">260mm</SelectItem>
-                <SelectItem value="270">270mm</SelectItem>
-                <SelectItem value="280">280mm</SelectItem>
-                <SelectItem value="290">290mm</SelectItem>
-              </SelectGroup>
-            </SelectContent>
-          </Select>
+          <ToggleGroup
+            className="grid grid-cols-3 gap-4 mt-5"
+            type="single"
+            variant="outline"
+            value={selectedSize}>
+            {sizeVariants.map((size, idx) => (
+              <ToggleGroupItem key={idx} className={`w-full`} value={size}>
+                <Link
+                  href={`/playground/state/URL-State?color=${selectedColor}&size=${size}`}>
+                  {size}mm
+                </Link>
+              </ToggleGroupItem>
+            ))}
+          </ToggleGroup>
           <p className="text-gray-400 text-sm mt-10">
             7 Days Easy Returns We assure easy return exchange of purchased
             items within 7 days of delivery.

@@ -17,6 +17,7 @@ type ProfileCardProps = {
   content: string;
   actionHref: string;
   detailModal: React.ReactNode;
+  detail: boolean;
 };
 
 function ProfileCard(props: ProfileCardProps) {
@@ -28,16 +29,18 @@ function ProfileCard(props: ProfileCardProps) {
         <CardDescription>{props.content}</CardDescription>
       </CardHeader>
       <CardFooter className="flex gap-3 justify-end">
-        <AlertDialog>
-          <AlertDialogTrigger asChild>
-            <Button className="w-full">상세보기</Button>
-          </AlertDialogTrigger>
-          {props.detailModal}
-        </AlertDialog>
+        {props.detail === true && (
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Button className="w-full">상세보기</Button>
+            </AlertDialogTrigger>
+            {props.detailModal}
+          </AlertDialog>
+        )}
         <Button
           className="w-full"
           onClick={() => router.push(props.actionHref)}>
-          예제 이동
+          {props.detail ? "예제 이동" : "이동하기"}
         </Button>
       </CardFooter>
     </Card>
