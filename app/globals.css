@@ -2,9 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
 
 .nanumgothic * {
   font-family: "Nanum Gothic", sans-serif;
+}
+
+.jejugothic * {
+  font-family: "Jeju Gothic", sans-serif;
 }
 
 html,

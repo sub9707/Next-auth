@@ -3,7 +3,7 @@ import React from "react";
 
 function page() {
   return (
-    <div className="flex justify-center gap-10 text-center">
+    <div className="flex gap-10 text-center">
       <ProfileCard
         header="Session 정보 확인"
         content="현재 로그인한 정보를 확인합니다."

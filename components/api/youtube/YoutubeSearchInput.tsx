@@ -14,7 +14,7 @@ function YoutubeSearchInput() {
   };
   return (
     <Card className="w-[40vw]">
-      <div className="flex w-full space-x-2 ">
+      <div className="flex w-full space-x-2 p-2 ">
         <Input
           type="text"
           placeholder="Youtube 검색어 입력..."

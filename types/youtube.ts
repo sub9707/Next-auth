@@ -18,7 +18,7 @@ export const YoutubeResultInitialState: YoutubeSearchResults = {
   regionCode: "KR",
 };
 
-type YoutubeSearchResultData = {
+export type YoutubeSearchResultData = {
   etag: string;
   id: {
     kind: string;
@@ -37,6 +37,7 @@ type YoutubeSearchResultData = {
     };
   };
 };
+
 type YoutubeThumbnailProperty = {
   url: string;
   width: number;

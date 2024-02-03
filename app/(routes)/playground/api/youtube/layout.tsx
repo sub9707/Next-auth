@@ -4,7 +4,9 @@ import React from "react";
 function YoutubeLayout({ children }: { children: React.ReactNode }) {
   return (
     <YoutubeProvider>
-      <div>{children}</div>
+      <div className="w-full h-full flex justify-center items-center">
+        {children}
+      </div>
     </YoutubeProvider>
   );
 }

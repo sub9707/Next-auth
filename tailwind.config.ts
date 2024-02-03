@@ -19,6 +19,7 @@ const config = {
     },
     fontFamily: {
       NanumGothic: ["Nanum Gothic"],
+      JEJUGothic: ["Jeju Gothic"],
     },
     extend: {
       colors: {
