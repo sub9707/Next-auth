@@ -23,13 +23,6 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
     return { error: "존재하지 않는 이메일입니다." };
   }
 
-  if (!existingUser.emailVerified) {
-    const verificationToken = await generateVerificationToken(
-      existingUser.email
-    );
-    return { success: "인증 메일이 전송되었습니다." };
-  }
-
   try {
     await signIn("credentials", {
       email,
