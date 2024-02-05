@@ -3,12 +3,17 @@ import { DialogContent } from "@/components/ui/dialog";
 import React from "react";
 import YouTube from "react-youtube";
 
-function VideoPlayer() {
+type VideoPlayerProps = {
+  vid: string;
+};
+
+function VideoPlayer(props: VideoPlayerProps) {
+  const { vid } = props;
   return (
     <>
       <DialogContent className="sm:max-w-[1080px]">
         <YouTube
-          videoId={"FxFr-ZMxZes"}
+          videoId={vid}
           opts={{
             width: "100%",
             height: "600px",
