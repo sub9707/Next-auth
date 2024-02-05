@@ -4,8 +4,6 @@ import Image from "next/image";
 import React from "react";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import VideoPlayer from "./VideoPlayer";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCommentDots } from "@fortawesome/free-solid-svg-icons";
 
 function YoutubeVideoCard(props: YoutubeSearchResultData) {
   const { snippet, id } = props;
@@ -42,17 +40,11 @@ function YoutubeVideoCard(props: YoutubeSearchResultData) {
             </p>
           </div>
           <div className="flex justify-between">
-            <DialogTrigger asChild className="w-[90%]">
+            <DialogTrigger asChild>
               <p className="text-gray-500 text-sm mt-2 pb-1 line-clamp-2 pr-2 hover:cursor-pointer hover:underline">
                 {snippet?.description}
               </p>
             </DialogTrigger>
-            <div className="w-[10%] flex justify-center items-end">
-              <FontAwesomeIcon
-                icon={faCommentDots}
-                className="text-gray-400 cursor-pointer"
-              />
-            </div>
           </div>
         </div>
         <VideoPlayer vid={id?.videoId} />

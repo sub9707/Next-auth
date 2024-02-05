@@ -3,9 +3,6 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import LoginButton from "../components/auth/login-button";
 import "./page.css";
-import { config } from "@fortawesome/fontawesome-svg-core";
-import "@fortawesome/fontawesome-svg-core/styles.css";
-config.autoAddCss = false;
 
 const font = Poppins({
   subsets: ["latin"],
