@@ -25,4 +25,4 @@ NextJS 환경에서 라이브러리를 활용하기 위한 학습공간를 추�
 - PortOne (CDN) : v1
 - Shacdn (UI & Comp.) : 0.8.0
 
-<a href="https://next-js-playground-g9l2i71dk-sub9707.vercel.app">서비스 페이지 이동</a>
+<a href="https://next-js-playground-git-master-sub9707.vercel.app">서비스 페이지 이동</a>
