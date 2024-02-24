@@ -7,7 +7,17 @@ function page() {
   return (
     <div className="flex gap-5">
       <ProfileCard
-        header="React Hooks API"
+        header="UseReducer"
+        content="React Hooks API를 학습합니다."
+        actionHref="/playground/hooks"
+      />
+      <ProfileCard
+        header="UseCallback"
+        content="React Hooks API를 학습합니다."
+        actionHref="/playground/hooks"
+      />
+      <ProfileCard
+        header="UseMemo"
         content="React Hooks API를 학습합니다."
         actionHref="/playground/hooks"
       />

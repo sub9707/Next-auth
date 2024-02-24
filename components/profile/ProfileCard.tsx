@@ -23,9 +23,9 @@ type ProfileCardProps = {
 function ProfileCard(props: ProfileCardProps) {
   const router = useRouter();
   return (
-    <Card className="w-[350px]">
+    <Card className="w-[350px] text-center  bg-white border-4 border-slate-600 dark:border-none">
       <CardHeader>
-        <CardTitle>{props.header}</CardTitle>
+        <CardTitle className="text-slate-950">{props.header}</CardTitle>
         <CardDescription>{props.content}</CardDescription>
       </CardHeader>
       <CardFooter className="flex gap-3 justify-end">
@@ -38,7 +38,7 @@ function ProfileCard(props: ProfileCardProps) {
           </AlertDialog>
         )}
         <Button
-          className="w-full"
+          className="w-full bg-white text-black border-2 border-slate-500  dark:bg-slate-950 dark:text-white hover:text-white"
           onClick={() => router.push(props.actionHref)}>
           {props.detail ? "예제 이동" : "이동하기"}
         </Button>

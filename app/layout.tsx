@@ -21,11 +21,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={theme?.value}>
       <head />
       <Script src="https://cdn.iamport.kr/v1/iamport.js" />
       <body className={inter.className}>
-        <button>123</button>
         <Suspense fallback={<Loading />}>{children}</Suspense>
       </body>
     </html>
