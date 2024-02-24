@@ -54,7 +54,9 @@ function KakaoPayButton(props: sessionProps) {
     }
   }
   return (
-    <Button className="w-full" onClick={handlePayment}>
+    <Button
+      className="w-full bg-slate-950 text-white hover:bg-slate-700"
+      onClick={handlePayment}>
       카카오페이
     </Button>
   );

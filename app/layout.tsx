@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={theme?.value}>
+    <html lang="en" className={theme?.value} suppressHydrationWarning>
       <head />
       <Script src="https://cdn.iamport.kr/v1/iamport.js" />
       <body className={inter.className + "relative"}>

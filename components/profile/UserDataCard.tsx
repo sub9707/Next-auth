@@ -23,6 +23,10 @@ async function UserDataCard() {
               <strong className="text-black/70">{key}</strong>: {value}
             </p>
           ))}
+          <p>
+            <strong className="text-black/70">Session Expires at</strong>:{" "}
+            {session?.expires}
+          </p>
         </CardDescription>
       </CardHeader>
       <form

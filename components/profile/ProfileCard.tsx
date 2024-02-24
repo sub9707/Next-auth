@@ -38,7 +38,7 @@ function ProfileCard(props: ProfileCardProps) {
           </AlertDialog>
         )}
         <Button
-          className="w-full bg-white text-black border-2 border-slate-500  dark:bg-slate-950 dark:text-white dark:border-none hover:text-white"
+          className="w-full border-2 border-slate-500  bg-slate-950 text-white dark:border-none hover:text-white hover:bg-slate-700"
           onClick={() => router.push(props.actionHref)}>
           {props.detail ? "예제 이동" : "이동하기"}
         </Button>

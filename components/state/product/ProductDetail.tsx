@@ -4,6 +4,7 @@ import ProductCarousel from "./ProductCarousel";
 import { Badge } from "@/components/ui/badge";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { Button } from "@/components/ui/button";
+import { FaArrowLeft } from "react-icons/fa";
 import Link from "next/link";
 
 const colorVariants = ["black", "white", "blue"];
@@ -18,7 +19,13 @@ function ProductDetail(props: SearchParamsType) {
   const selectedSize = props.searchParams.size as string;
 
   return (
-    <Card className="w-[90vw] h-[90vh] flex">
+    <Card className="w-[90vw] h-[90vh] flex bg-white dark:bg-slate-800 relative">
+      <Link
+        className="absolute top-5 left-5 z-50 flex items-center gap-2"
+        href="/playground/state">
+        <FaArrowLeft />
+        뒤로가기
+      </Link>
       <div className="w-[60%] h-full">
         <ProductCarousel />
       </div>
@@ -35,7 +42,12 @@ function ProductDetail(props: SearchParamsType) {
             variant="outline"
             value={selectedColor}>
             {colorVariants.map((color, idx) => (
-              <ToggleGroupItem key={idx} className={`w-28`} value={color}>
+              <ToggleGroupItem
+                key={idx}
+                className={`w-28 dark:bg-slate-600 ${
+                  color == selectedColor && "dark:bg-slate-900"
+                } `}
+                value={color}>
                 <Link
                   href={`/playground/state/URL-State?color=${color}&size=${selectedSize}`}>
                   {color.charAt(0).toUpperCase() + color.slice(1)}
@@ -52,7 +64,12 @@ function ProductDetail(props: SearchParamsType) {
             variant="outline"
             value={selectedSize}>
             {sizeVariants.map((size, idx) => (
-              <ToggleGroupItem key={idx} className={`w-full`} value={size}>
+              <ToggleGroupItem
+                key={idx}
+                className={`w-full dark:bg-slate-600 ${
+                  size == selectedSize && "dark:bg-slate-900"
+                }`}
+                value={size}>
                 <Link
                   href={`/playground/state/URL-State?color=${selectedColor}&size=${size}`}>
                   {size}mm
@@ -65,7 +82,9 @@ function ProductDetail(props: SearchParamsType) {
             items within 7 days of delivery.
           </p>
           <div className="flex mt-10 gap-4">
-            <Button className="w-[50%] h-12" variant="outline">
+            <Button
+              className="w-[50%] h-12 hover:bg-slate-900"
+              variant="outline">
               Add Cart
             </Button>
             <Button className="w-[50%] h-12">Buy Now</Button>

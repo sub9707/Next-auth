@@ -1,7 +1,7 @@
 import React from "react";
 
 function page() {
-  return <div className="flex gap-5"></div>;
+  return <div className="w-full h-full"></div>;
 }
 
 export default page;

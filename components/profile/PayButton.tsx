@@ -55,7 +55,9 @@ function PayButton(props: sessionProps) {
     }
   }
   return (
-    <Button className="w-full" onClick={handlePayment}>
+    <Button
+      className="w-full bg-slate-950 text-white hover:bg-slate-700"
+      onClick={handlePayment}>
       NICE 페이먼츠
     </Button>
   );
