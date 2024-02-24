@@ -16,8 +16,8 @@ type ProfileCardProps = {
   header: string;
   content: string;
   actionHref: string;
-  detailModal: React.ReactNode;
-  detail: boolean;
+  detailModal?: React.ReactNode;
+  detail?: boolean;
 };
 
 function ProfileCard(props: ProfileCardProps) {

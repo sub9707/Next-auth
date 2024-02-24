@@ -3,7 +3,7 @@ import React from "react";
 
 function page() {
   return (
-    <div className="flex gap-10 text-center">
+    <div className="grid grid-cols-3 gap-10 text-center">
       <ProfileCard
         header="Session 정보 확인"
         content="현재 로그인한 정보를 확인합니다."
@@ -22,6 +22,13 @@ function page() {
         header="State 관리"
         content="state 관리를 학습합니다."
         actionHref="/playground/state"
+        detail={false}
+        detailModal={null}
+      />
+      <ProfileCard
+        header="React 최적화 학습"
+        content="React 최적화 방안을 학습합니다."
+        actionHref="/playground/hooks"
         detail={false}
         detailModal={null}
       />
