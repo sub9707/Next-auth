@@ -22,11 +22,13 @@ function ThemeButton({ theme }: ThemePropsType) {
   };
 
   return (
-    <button onClick={toogleTheme}>
+    <button
+      onClick={toogleTheme}
+      className="h-14 w-14 bg-white/50 grid place-items-center rounded-full ">
       {_theme == Theme.dark ? (
-        <SunIcon className="h-10 w-10 text-yellow-500" />
+        <SunIcon className="h-8 w-8 text-yellow-500" />
       ) : (
-        <MoonIcon className="h-10 w-10" />
+        <MoonIcon className="h-8 w-8" />
       )}
     </button>
   );

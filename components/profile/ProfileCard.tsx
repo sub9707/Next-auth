@@ -23,7 +23,7 @@ type ProfileCardProps = {
 function ProfileCard(props: ProfileCardProps) {
   const router = useRouter();
   return (
-    <Card className="w-[350px] text-center  bg-white border-4 border-slate-600 dark:border-none">
+    <Card className="w-[350px] max-h-[150px] h-auto text-center drop-shadow-2xl bg-white border-4 border-slate-600 dark:border-none">
       <CardHeader>
         <CardTitle className="text-slate-950">{props.header}</CardTitle>
         <CardDescription>{props.content}</CardDescription>
@@ -38,7 +38,7 @@ function ProfileCard(props: ProfileCardProps) {
           </AlertDialog>
         )}
         <Button
-          className="w-full bg-white text-black border-2 border-slate-500  dark:bg-slate-950 dark:text-white hover:text-white"
+          className="w-full bg-white text-black border-2 border-slate-500  dark:bg-slate-950 dark:text-white dark:border-none hover:text-white"
           onClick={() => router.push(props.actionHref)}>
           {props.detail ? "예제 이동" : "이동하기"}
         </Button>

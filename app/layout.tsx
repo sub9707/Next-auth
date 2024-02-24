@@ -5,6 +5,8 @@ import Script from "next/script";
 import { Suspense } from "react";
 import Loading from "./loading";
 import { cookies } from "next/dist/client/components/headers";
+import ThemeButton from "@/components/utils/ThemeButton";
+import { Theme } from "@/types";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,6 +16,8 @@ export const metadata: Metadata = {
 };
 
 const theme = cookies().get("theme");
+const curTheme =
+  cookies().get("theme")?.value === "dark" ? Theme.dark : Theme.light;
 
 export default function RootLayout({
   children,
@@ -24,7 +28,10 @@ export default function RootLayout({
     <html lang="en" className={theme?.value}>
       <head />
       <Script src="https://cdn.iamport.kr/v1/iamport.js" />
-      <body className={inter.className}>
+      <body className={inter.className + "relative"}>
+        <nav className="fixed top-7 right-10 z-50">
+          <ThemeButton theme={curTheme} />
+        </nav>
         <Suspense fallback={<Loading />}>{children}</Suspense>
       </body>
     </html>

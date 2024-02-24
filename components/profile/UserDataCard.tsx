@@ -2,49 +2,43 @@ import React from "react";
 import {
   Card,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { auth, signOut } from "@/auth";
+import Link from "next/link";
 
 async function UserDataCard() {
   const session = await auth();
   return (
-    <Card className="w-[30vw] h-auto break-all flex-col justify-between relative">
-      <CardHeader className="mb-16">
-        <CardTitle className="font-bold text-center">
+    <Card className="w-full md:w-[30vw] max-h-72 break-all bg-white flex-col justify-between shadow-2xl">
+      <CardHeader>
+        <CardTitle className="text-black font-bold text-center ">
           로그인 사용자 정보
         </CardTitle>
         <CardDescription>
-          <p>
-            <strong>유저명</strong>: {session?.user.name}
-          </p>
-          <p>
-            <strong>email</strong>: {session?.user.email}
-          </p>
-          <p>
-            <strong>잔고</strong>: {session?.user.balance}₩
-          </p>
-          <p>
-            <strong>UID</strong>: {session?.user.id}
-          </p>
-          <p>
-            <strong>권한</strong>: {session?.user.role}
-          </p>
-          <p>
-            <strong>세션만료시간</strong>: {session?.expires}
-          </p>
+          {Object.entries(session?.user || {}).map(([key, value]) => (
+            <p key={key}>
+              <strong className="text-black/70">{key}</strong>: {value}
+            </p>
+          ))}
         </CardDescription>
       </CardHeader>
       <form
-        className="absolute bottom-5 w-full flex justify-center"
+        className="w-full gap-5 px-10 flex md:mb-5"
         action={async () => {
           "use server";
           await signOut();
         }}>
-        <Button className="w-[80%]">로그아웃</Button>
+        <Button className="w-full bg-slate-950 text-white dark:hover:bg-slate-700">
+          로그아웃
+        </Button>
+        <Link
+          className="w-full text-black grid place-items-center bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)]"
+          href={"/playground"}>
+          뒤로가기
+        </Link>
       </form>
     </Card>
   );
