@@ -3,7 +3,7 @@ import React from "react";
 
 function page() {
   return (
-    <div className="w-full h-[50%] grid grid-cols-1 place-items-center gap-10 text-center md:grid-cols-3">
+    <div className="w-full grid grid-cols-1 gap-10 text-center md:grid-cols-3">
       <ProfileCard
         header="Session 정보 확인"
         content="현재 로그인한 정보를 확인합니다."

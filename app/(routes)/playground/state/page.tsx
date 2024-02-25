@@ -5,7 +5,7 @@ import URLDetailData from "@/components/state/URLStateData.json";
 
 function page() {
   return (
-    <div className="flex gap-5">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
       <ProfileCard
         header="URL State"
         content="URL에 state를 관리합니다."

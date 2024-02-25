@@ -12,7 +12,7 @@ import Link from "next/link";
 async function UserDataCard() {
   const session = await auth();
   return (
-    <Card className="w-full md:w-[30vw] max-h-72 break-all bg-white flex-col justify-between shadow-2xl">
+    <Card className="w-[90vw] md:w-[30vw] max-h-72 break-all bg-white flex-col justify-between shadow-2xl">
       <CardHeader>
         <CardTitle className="text-black font-bold text-center ">
           로그인 사용자 정보
@@ -30,7 +30,7 @@ async function UserDataCard() {
         </CardDescription>
       </CardHeader>
       <form
-        className="w-full gap-5 px-10 flex md:mb-5"
+        className="w-full gap-5 px-10 flex mb-5"
         action={async () => {
           "use server";
           await signOut();

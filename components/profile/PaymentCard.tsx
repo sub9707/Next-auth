@@ -14,12 +14,14 @@ import KakaoPayButton from "./KakaoPayButton";
 async function PaymentCard() {
   const session = await auth();
   return (
-    <Card className="w-full md:w-[30vw] max-h-[23vh] bg-white break-all flex-col justify-between relative">
-      <CardHeader className="mb-8">
+    <Card className="w-full md:w-[30vw] max-h-[23vh] bg-white break-all flex-col justify-between">
+      <CardHeader className="mb-4">
         <CardTitle className="font-bold text-center mb-5 text-black">
           결제 모듈 테스트
         </CardTitle>
+
         <CardDescription className="text-center text-md">
+          테스트용 결제 모듈입니다. 실제 결제는 방지되어있습니다. <br />
           현재 잔고는 <strong>{session?.user.balance}</strong>원입니다.
         </CardDescription>
       </CardHeader>

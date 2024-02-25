@@ -9,9 +9,9 @@ function YoutubeVideoCard(props: YoutubeSearchResultData) {
   const { snippet, id } = props;
 
   return (
-    <Card className="w-full h-full sm flex p-2 gap-5 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
+    <Card className="w-full h-full sm flex p-2 gap-5 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] bg-white dark:bg-slate-800">
       <Dialog>
-        <div className="w-[30%]">
+        <div className="w-[50%] sm:w-[30%] flex items-center">
           <DialogTrigger asChild>
             <Image
               className="w-full aspect-video hover:cursor-pointer object-cover"
@@ -22,7 +22,7 @@ function YoutubeVideoCard(props: YoutubeSearchResultData) {
             />
           </DialogTrigger>
         </div>
-        <div className="w-[70%] flex flex-col justify-center mx-2">
+        <div className="w-[50%] sm:w-[70%] flex flex-col justify-center mx-2">
           <DialogTrigger asChild>
             <h1 className="font-extrabold font-JEJUGothic text-gray-700 hover:underline cursor-pointer whitespace-nowrap pr-2 text-ellipsis overflow-hidden ...">
               {snippet?.title}
