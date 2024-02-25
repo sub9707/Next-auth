@@ -3,7 +3,6 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import LoginButton from "../components/auth/login-button";
 import "./page.css";
-import Loading from "./loading";
 
 const font = Poppins({
   subsets: ["latin"],

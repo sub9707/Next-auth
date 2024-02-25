@@ -9,7 +9,7 @@ function YoutubeVideoCard(props: YoutubeSearchResultData) {
   const { snippet, id } = props;
 
   return (
-    <Card className="w-full h-full flex p-2 gap-5 shadow-lg shadow-white/20">
+    <Card className="w-full h-full sm flex p-2 gap-5 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
       <Dialog>
         <div className="w-[30%]">
           <DialogTrigger asChild>

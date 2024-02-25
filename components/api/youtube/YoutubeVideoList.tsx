@@ -27,7 +27,7 @@ function YoutubeVideoList() {
   }, [input]);
 
   return (
-    <div className="w-[40vw] mt-10 flex flex-col items-center justify-center gap-3">
+    <div className="w-[80vw] mt-10 flex flex-col items-center justify-center gap-3 sm:w-[40vw]">
       {isPending ? (
         <Image
           className="w-[200px] h-[200px]"

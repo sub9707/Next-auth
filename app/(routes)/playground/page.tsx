@@ -26,13 +26,6 @@ function page() {
         detailModal={null}
       />
       <ProfileCard
-        header="React Hooks 학습"
-        content="React Hooks를 학습합니다."
-        actionHref="/playground/hooks"
-        detail={false}
-        detailModal={null}
-      />
-      <ProfileCard
         header="API 활용"
         content="API 데이터를 활용합니다."
         actionHref="/playground/api"
