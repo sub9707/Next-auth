@@ -1,5 +1,6 @@
 import ProfileCard from "@/components/profile/ProfileCard";
 import React from "react";
+import { cookies } from "next/headers";
 
 function page() {
   return (
