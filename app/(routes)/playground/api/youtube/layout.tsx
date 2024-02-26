@@ -1,3 +1,4 @@
+"use client";
 import { YoutubeProvider } from "@/context/youtube";
 import React from "react";
 

@@ -1,5 +1,4 @@
 "use client";
-import { fetchYoutubeData } from "@/app/api/youtube/fetchingFunc";
 import { YoutubeContext } from "@/context/youtube";
 import {
   YoutubeResultInitialState,
@@ -18,8 +17,14 @@ function YoutubeVideoList() {
   useEffect(() => {
     const fetchData = () => {
       startTransition(async () => {
-        const data = await fetchYoutubeData(input);
-        setYoutubeData(data);
+        const res = await fetch(
+          `/api/youtube/youtubeData?query_string=${input}`,
+          {
+            cache: "force-cache",
+          }
+        );
+        const data = await res.json();
+        setYoutubeData(data.data);
       });
     };
     if (input === "") return;

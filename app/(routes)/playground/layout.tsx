@@ -1,6 +1,3 @@
-import ThemeButton from "@/components/utils/ThemeButton";
-import { Theme } from "@/types";
-import { cookies } from "next/dist/client/components/headers";
 import React from "react";
 
 function AuthLayout({ children }: { children: React.ReactNode }) {

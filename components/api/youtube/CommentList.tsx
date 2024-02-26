@@ -1,5 +1,4 @@
 "use client";
-import { fetchCommentList } from "@/app/api/youtube/fetchingFunc";
 import { CollapsibleContent } from "@/components/ui/collapsible";
 import {
   YoutubeCommentsResultType,
@@ -19,11 +18,17 @@ function CommentList(props: { vid: string; isOpen: boolean }) {
   useEffect(() => {
     (async () => {
       startTransition(async () => {
-        const res = await fetchCommentList("snippet", vid);
-        setCommentsData(res);
+        const res = await fetch(
+          `/api/youtube/commentList?part=snippet&videoId=${vid}`,
+          {
+            cache: "force-cache",
+          }
+        );
+        const data = await res.json();
+        setCommentsData(data.data);
       });
     })();
-  }, []);
+  }, [vid]);
 
   return (
     <CollapsibleContent
