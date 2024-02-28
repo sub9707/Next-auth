@@ -1,5 +1,6 @@
 import React from "react";
 import ProductDetail from "@/components/state/product/ProductDetail";
+import { usePathname } from "next/navigation";
 
 function page({
   searchParams,

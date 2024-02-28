@@ -27,7 +27,7 @@ function ProductCarousel() {
               width={0}
               height={0}
               sizes="100vw"
-              className="w-[50%] h-auto"
+              className="w-[50%] h-auto rounded-lg"
             />
           </CarouselItem>
         ))}

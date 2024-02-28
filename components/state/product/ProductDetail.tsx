@@ -19,14 +19,19 @@ function ProductDetail(props: SearchParamsType) {
   const selectedSize = props.searchParams.size as string;
 
   return (
-    <Card className="w-[90vw] h-[90vh] flex bg-white dark:bg-slate-800 relative">
+    <Card className="w-[90vw] h-[90vh] flex bg-white dark:bg-slate-800 relative px-5 sm:px-0">
+      <p className="absolute bottom-3 text-center text-sm sm:text-lg sm:w-full">
+        현재 위치:
+        {`/playground/state/URL-State?color=`}
+        <strong>{selectedColor}</strong>&size=<strong>{selectedSize}</strong>
+      </p>
       <Link
         className="absolute top-5 left-5 z-50 flex items-center gap-2"
         href="/playground/state">
         <FaArrowLeft />
         뒤로가기
       </Link>
-      <div className="w-[60%] h-full">
+      <div className="w-[60%] h-full hidden sm:block">
         <ProductCarousel />
       </div>
       <div className="w-auto h-full flex flex-col justify-center">

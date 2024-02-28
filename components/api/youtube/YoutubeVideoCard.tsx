@@ -24,7 +24,7 @@ function YoutubeVideoCard(props: YoutubeSearchResultData) {
         </div>
         <div className="w-[50%] sm:w-[70%] flex flex-col justify-center mx-2">
           <DialogTrigger asChild>
-            <h1 className="font-extrabold font-JEJUGothic text-gray-700 hover:underline cursor-pointer whitespace-nowrap pr-2 text-ellipsis overflow-hidden ...">
+            <h1 className="font-extrabold font-JEJUGothic text-gray-700 dark:text-gray-300 hover:underline cursor-pointer whitespace-nowrap pr-2 text-ellipsis overflow-hidden ...">
               {snippet?.title}
             </h1>
           </DialogTrigger>
