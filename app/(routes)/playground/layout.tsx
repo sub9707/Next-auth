@@ -9,7 +9,7 @@ function AuthLayout({ children }: { children: React.ReactNode }) {
   const theme = themeCookies.get("theme");
   const curTheme = theme?.value === "dark" ? Theme.dark : Theme.light;
   return (
-    <div className="h-full flex items-center justify-center bg-white dark:bg-slate-950 dark:text-slate-950 relative">
+    <div className="h-full flex items-center justify-center bg-slate-200 dark:bg-slate-950 dark:text-slate-950 relative">
       <nav className="fixed top-7 right-10 z-50">
         <ThemeButton theme={curTheme} />
       </nav>
