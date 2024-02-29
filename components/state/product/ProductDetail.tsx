@@ -6,6 +6,7 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { Button } from "@/components/ui/button";
 import { FaArrowLeft } from "react-icons/fa";
 import Link from "next/link";
+import CodeViewButton from "@/components/utils/CodeViewButton";
 
 const colorVariants = ["black", "white", "blue"];
 const sizeVariants = ["230", "240", "260", "270", "280", "290"];
@@ -87,11 +88,12 @@ function ProductDetail(props: SearchParamsType) {
             items within 7 days of delivery.
           </p>
           <div className="flex mt-10 gap-4">
-            <Button
-              className="w-[50%] h-12 hover:bg-slate-900"
+            <CodeViewButton
+              codeData={`const test = foo();`}
+              className="w-[50%] h-12 dark:hover:bg-slate-900"
               variant="outline">
-              Add Cart
-            </Button>
+              View Codes
+            </CodeViewButton>
             <Button className="w-[50%] h-12">Buy Now</Button>
           </div>
         </div>

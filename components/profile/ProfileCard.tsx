@@ -23,7 +23,7 @@ type ProfileCardProps = {
 function ProfileCard(props: ProfileCardProps) {
   const router = useRouter();
   return (
-    <Card className="w-[350px] max-h-[150px] h-auto text-center drop-shadow-2xl bg-white border-4 border-slate-600 dark:border-none">
+    <Card className="w-[350px] max-h-[150px] h-auto text-center drop-shadow-2xl bg-white dark:border-none">
       <CardHeader>
         <CardTitle className="text-slate-950">{props.header}</CardTitle>
         <CardDescription>{props.content}</CardDescription>
